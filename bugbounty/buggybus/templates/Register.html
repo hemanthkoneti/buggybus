@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+{% block content %}
+{# <div class="container">
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.name.label(class="form-group") }} 
+    {{ form.name }}
+    <br />
+    {{ form.email.label(class="form-group") }} 
+    {{ form.email }}
+    <br />
+    {{ form.phone.label(class="form-group") }} 
+    {{ form.phone }}
+    <br />
+    {{ form.DOB.label(class="form-group") }} 
+    {{ form.DOB }}
+    <br />
+    {{ form.password.label(class="form-group") }} 
+    {{ form.password }}
+    <br/>
+    {{ form.pass_confirm.label(class="form-group") }} 
+    {{ form.pass_confirm }}
+    <br />
+    {{ form.submit(class="btn btn-primary") }}
+
+</form> #}
+
+<section class="vh-100" style="background-color: #eee;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+
+                <form class="mx-1 mx-md-4">
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="form3Example1c" class="form-control" />
+                      <label class="form-label" for="form3Example1c">Your Name</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="email" id="form3Example3c" class="form-control" />
+                      <label class="form-label" for="form3Example3c">Your Email</label>
+                    </div>
+                  </div>
+                  
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-phone-square fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="string" id="form3Example3c" class="form-control" />
+                      <label class="form-label" for="form3Example3c">Your phone number</label>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="far fa-calendar fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="date" id="form3Example3c" class="form-control" />
+                      <label class="form-label" for="form3Example3c">Your Date of Birth</label>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-venus-mars fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="select" id="form3Example4cd" class="form-control" />
+                      <label class="form-label" for="form3Example4cd">Your gender</label>
+                      <select class="form-control">
+                      <option value="1">Select</option>
+                      <option value="2">Male</option>
+                      <option value="3">Female</option>
+                      <option value="4">Other</option>
+                    </select>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-passport fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="select" id="form3Example4cd" class="form-control" />
+                      <label class="form-label" for="form3Example4cd">Your Country</label>
+                      <select class="form-control">
+                      <option value="1">Country</option>
+                      <option value="2">India</option>
+                      <option value="3">Bangladesh</option>
+                      <option value="4">Sri Lanka</option>
+                      <option value="5">option 4</option>
+                    </select>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="password" id="form3Example4c" class="form-control" />
+                      <label class="form-label" for="form3Example4c">Password</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="password" id="form3Example4cd" class="form-control" />
+                      <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                    </div>
+                  </div>
+        
+                  <div class="col-md-9 pe-5">
+                <input class="form-control form-control-sm" id="imgfile" type="file" onchange="validateSize(this)"/>
+                <div class="small text-muted mt-2">Upload your Image. Max file size 50 MB</div>
+              </div>
+              <script type="text/javascript">
+              function validateSize(input) {
+                const fileSize = input.files[0].size / 1024 / 1024; // in MiB
+                if (fileSize > 100) {
+                  alert('Congrats! You have given an input size that server cannot handel. Screeshot this and sumbit it to get your points.');
+                  $(file).val(''); //for clearing with Jquery
+                } else {
+                    alert('Your image has been uploaded sucessfully!!');
+                  }
+                }
+              </script>
+                  <div class="form-check d-flex justify-content-center mb-5">
+                    <input
+                      class="form-check-input me-2"
+                      type="checkbox"
+                      value=""
+                      id="form2Example3c"
+                    />
+                    <label class="form-check-label" for="form2Example3">
+                      I agree all statements in <a href="#!">Terms of service</a>
+                    </label>
+                  </div>
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button type="button" class="btn btn-primary btn-lg">Register</button>
+                  </div>
+
+                </form>
+
+              </div>
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" class="img-fluid" alt="Sample image">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# {% for mess in get_flashed_messages() %}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <button
+      type="button"
+      class="close"
+      data-dismiss="alert"
+      aria-label="Close"
+      class="fade close"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+    {{mess}}
+  </div>
+  {% endfor %} #}
+
+{# <div class="modal" tabindex="-1" role="dialog" id="del_modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Sorry</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Thank you! {{name}} </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Okay</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div> #}
+{% endblock %}
