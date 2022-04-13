@@ -35,28 +35,30 @@ def contact():
         session['msg']=request.form.get('message')
         if "<script>" in request.form.get('message'):
             return redirect(url_for("core.script"))
+        flash("You query has been submitted to us. Please wait while we respond to it.")
+        return redirect(url_for("core.index"))
     return render_template('contact.html')
 
 @core.route('/script')
 def script():
     if "msg" in session:
-       return render_template('script.html',message=session.get('msg'))
+       return render_template('script.html')
     else:
         return redirect(url_for("core.contact"))
 
 @core.route('/register',methods=['GET','POST'])
 def register():
-    form=RegisterForm()
+    # form=RegisterForm()
     # today=date.today()
     # born=form.DOB.data
     # age=today.year-born.year-((today.month, today.day) < (born.month, born.day))+2
     # name=form.name.data
     # country=form.country.data
-    if form.validate_on_submit():
-        flash("Sorry, Cannot register right now")
+    if request.method == "POST":
+        flash("Sorry, We are unable to register you right now. Please try login some way or another","error")
         return redirect(url_for('core.index'))
         
-    return render_template('register.html',form=form)
+    return render_template('register.html')
 
 @core.route('/login',methods=['GET','POST'])
 def login():
@@ -70,7 +72,7 @@ def login():
 
             admin=User.query.filter_by(username='admin').first()
             login_user(admin)
-            flash('Logged in successfully.')
+            # flash('Logged in successfully.')
             
             next = request.args.get('next')
 
@@ -85,7 +87,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    flash('You logged out!')
+    # flash('You logged out!')
     return redirect(url_for('core.index'))
 
 @core.route('/buslist',methods=['GET', 'POST'])
@@ -103,9 +105,8 @@ def buslist():
 def review():
     from_city=session.get('to')
     to_city=session.get('from')
-    # size=session['Passengers']
-    # cost=size*2000
-    cost=2000
+    size=session['Passengers']
+    cost=int(size)*3000
     return render_template('review.html',from_city=from_city,to_city=to_city,cost=cost)
 
 @core.route('/payment',methods=['GET','POST'])

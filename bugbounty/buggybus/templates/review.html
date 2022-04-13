@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-
+ <div class="container text-center" style="display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;">
 <div class="card text-center" style="width: 32rem;">
   <img src="static/Trekking.png" class="img-thumbnail" alt="Fissure in Sandstone"/>
   <div class="card-body">
@@ -9,12 +12,13 @@
     </div>
     <ul class="list-group list-group-flush">
     <li class="list-group-item">{{from_city}} to {{to_city}}</li>
-    <li class="list-group-item">01/04/2021</li>
+    <li class="list-group-item">11/04/2021</li>
     <li class="list-group-item">Total cost: {{cost}}</li>
   </ul>
   <div class="card-body">
     <a href="{{url_for('core.buslist')}}" class="btn btn-danger">Cancel</a>
     <a href="{{url_for('core.payment')}}" class="btn btn-success">Proceed to pay</a>
+  </div>
   </div>
   </div>
 {% endblock %}

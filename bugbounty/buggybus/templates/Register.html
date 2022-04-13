@@ -1,30 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-{# <div class="container">
-
-<form method="POST">
-    {{ form.hidden_tag() }}
-    {{ form.name.label(class="form-group") }} 
-    {{ form.name }}
-    <br />
-    {{ form.email.label(class="form-group") }} 
-    {{ form.email }}
-    <br />
-    {{ form.phone.label(class="form-group") }} 
-    {{ form.phone }}
-    <br />
-    {{ form.DOB.label(class="form-group") }} 
-    {{ form.DOB }}
-    <br />
-    {{ form.password.label(class="form-group") }} 
-    {{ form.password }}
-    <br/>
-    {{ form.pass_confirm.label(class="form-group") }} 
-    {{ form.pass_confirm }}
-    <br />
-    {{ form.submit(class="btn btn-primary") }}
-
-</form> #}
 
 <section class="vh-100" style="background-color: #eee;">
   <div class="container h-100">
@@ -37,12 +12,12 @@
 
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
-                <form class="mx-1 mx-md-4">
+                <form class="mx-1 mx-md-4" method="post">
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example1c" class="form-control" />
+                      <input type="text" id="form3Example1c" class="form-control" required/>
                       <label class="form-label" for="form3Example1c">Your Name</label>
                     </div>
                   </div>
@@ -50,7 +25,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="email" id="form3Example3c" class="form-control" />
+                      <input type="email" id="form3Example3c" class="form-control" required/>
                       <label class="form-label" for="form3Example3c">Your Email</label>
                     </div>
                   </div>
@@ -58,14 +33,14 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-phone-square fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="string" id="form3Example3c" class="form-control" />
+                      <input type="number" step="1" id="form3Example3c" class="form-control" required/>
                       <label class="form-label" for="form3Example3c">Your phone number</label>
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="far fa-calendar fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="date" id="form3Example3c" class="form-control" />
+                      <input type="date" id="form3Example3c" class="form-control" min="1918-01-01" max="2022-04-08" required/>
                       <label class="form-label" for="form3Example3c">Your Date of Birth</label>
                     </div>
                   </div>
@@ -99,7 +74,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4c" class="form-control" />
+                      <input type="password" id="form3Example4c" class="form-control" required/>
                       <label class="form-label" for="form3Example4c">Password</label>
                     </div>
                   </div>
@@ -107,7 +82,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4cd" class="form-control" />
+                      <input type="password" id="form3Example4cd" class="form-control" required/>
                       <label class="form-label" for="form3Example4cd">Repeat your password</label>
                     </div>
                   </div>
@@ -119,7 +94,7 @@
               <script type="text/javascript">
               function validateSize(input) {
                 const fileSize = input.files[0].size / 1024 / 1024; // in MiB
-                if (fileSize > 100) {
+                if (fileSize > 50) {
                   alert('Congrats! You have given an input size that server cannot handel. Screeshot this and sumbit it to get your points.');
                   $(file).val(''); //for clearing with Jquery
                 } else {
@@ -133,13 +108,14 @@
                       type="checkbox"
                       value=""
                       id="form2Example3c"
+                      required
                     />
                     <label class="form-check-label" for="form2Example3">
                       I agree all statements in <a href="#!">Terms of service</a>
                     </label>
                   </div>
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="button" class="btn btn-primary btn-lg">Register</button>
+                    <button type="submit" class="btn btn-primary btn-lg">Register</button>
                   </div>
 
                 </form>
@@ -158,38 +134,4 @@
   </div>
 </section>
 
-{# {% for mess in get_flashed_messages() %}
-  <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <button
-      type="button"
-      class="close"
-      data-dismiss="alert"
-      aria-label="Close"
-      class="fade close"
-    >
-      <span aria-hidden="true">&times;</span>
-    </button>
-    {{mess}}
-  </div>
-  {% endfor %} #}
-
-{# <div class="modal" tabindex="-1" role="dialog" id="del_modal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Sorry</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Thank you! {{name}} </p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Okay</button>
-      </div>
-    </div>
-  </div>
-</div>
-</div> #}
 {% endblock %}

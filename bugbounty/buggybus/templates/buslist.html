@@ -1,69 +1,16 @@
-{# {%extends "base.html"%}
-
-{%block content%}
-
-<div class="card text-center">
-  <div class="card-header">
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">{{from_city}}-->{{to_city}}</h5>
-  </div>
-  <div class="card-footer text-muted"> #}
-    {# {%date%} #}
-  {# </div>
-</div>
-<br/>
-
-<ul class="list-group list-group-horizontal">
-  <li class="list-group-item">{{from_city}}</li>
-  <li class="list-group-item">{{to_city}}</li>
-  <li class="list-group-item">9:00</li>
-</ul>
-<ul class="list-group list-group-horizontal-sm">
-  <li class="list-group-item">{{from_city}}</li>
-  <li class="list-group-item">{{to_city}}</li>
-  <li class="list-group-item">7:00</li>
-</ul>
-<ul class="list-group list-group-horizontal-md">
-  <li class="list-group-item">{{from_city}}</li>
-  <li class="list-group-item">{{to_city}}</li>
-  <li class="list-group-item">13:00</li>
-</ul>
-<ul class="list-group list-group-horizontal-lg">
-  <li class="list-group-item">{{from_city}}</li>
-  <li class="list-group-item">{{to_city}}</li>
-  <li class="list-group-item">16:30</li>
-</ul>
-<ul class="list-group list-group-horizontal-xl">
-  <li class="list-group-item">{{from_city}}</li>
-  <li class="list-group-item">{{to_city}}</li>
-  <li class="list-group-item">19:00</li>
-</ul>
-<ul class="list-group list-group-horizontal-xxl">
-  <li class="list-group-item">{{from_city}}</li>
-  <li class="list-group-item">{{to_city}}</li>
-  <li class="list-group-item">22:00</li>
-</ul>
-<li class="nav-item">
-  <a class="nav-link active" aria-current="page" href="{{url_for('core.payment')}}">
-  <button type="button" class="btn btn-success">Proceed to payment</button>
-  </a>
-</li>
-{%endblock%} #}
-
     {%extends "base.html"%} {%block content%}
 
     <div class="card text-center">
       <div class="card-header"></div>
       <div class="card-body">
-        <h5 class="card-title">{{from_city}}-->{{to_city}}</h5>
+        <h5 class="card-title">{{from_city}} To {{to_city}}</h5>
       </div>
       <div class="card-footer text-muted">{# {%date%} #}</div>
     </div>
     <br />
 
-    <form method="post">
-      <div style="display: flex; flex-direction: row">
+     <form method="post" id="Form" action="#">
+      <div id="NoPass">
         <h5>Select Number Of Passengers</h5>
         <input
           type="number"
@@ -74,164 +21,108 @@
           name="Passengers"
         />
       </div>
-      <div class="form-check" style="display: flex; flex-direction: row;">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="flexRadioDefault"
-          id="flexRadioDefault1"
-          value="{{Neeta}}"
-        />
-        <h5>Neeta Travels<span >-----------</span></h5>
+      <table id="customers">
+        <tr>
+          <th>Bus Name</th>
+          <th>Time</th>
+          <th>Duration</th>
+          <th>Price</th>
+        </tr>
+        <tr>
+          <td>
+            <input
+              class="form-check-input"
+              style="margin-right: 10px"
+              type="radio"
+              name="flexRadioDefault"
+              id="flexRadioDefault1"
+              value="{{Neeta}}"
+            />Neeta Travels
+          </td>
+          <td>9.00 AM</td>
+          <td>2HRs 30 Mins</td>
+          <td>3500 Rs</td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              class="form-check-input"
+              style="margin-right: 10px"
+              type="radio"
+              name="flexRadioDefault"
+              id="flexRadioDefault2"
+              value="VRL"
+            />VRL Travels
+          </td>
+          <td>11.00 AM</td>
+          <td>3HRs 55 Mins</td>
+          <td>3000 Rs</td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              class="form-check-input"
+              style="margin-right: 10px"
+              type="radio"
+              name="flexRadioDefault"
+              id="flexRadioDefault3"
+              value="Shrinath"
+            />Shrinath Travels
+          </td>
+          <td>13.00 PM</td>
+          <td>3HRs 30 Mins</td>
+          <td>4500 Rs</td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              class="form-check-input"
+              style="margin-right: 10px"
+              type="radio"
+              name="flexRadioDefault"
+              id="flexRadioDefault3"
+              value="SRS"
+            />SRS Travels
+          </td>
+          <td>15.00 PM</td>
+          <td>2HRs 25 Mins</td>
+          <td>4000 Rs</td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              class="form-check-input"
+              style="margin-right: 10px"
+              type="radio"
+              name="flexRadioDefault"
+              id="flexRadioDefault3"
+              value="HANS"
+            />HANS TRAVELS
+          </td>
+          <td>17.00 PM</td>
+          <td>2HRs 50 Mins</td>
+          <td>3200 Rs</td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              class="form-check-input"
+              style="margin-right: 10px"
+              type="radio"
+              name="flexRadioDefault"
+              id="flexRadioDefault3"
+              value="Gujarat"
+            />Gujarat Travels
+          </td>
+          <td>18.00 PM</td>
+          <td>2HRs 45 Mins</td>
+          <td>3500 Rs</td>
+        </tr>
+      </table>
 
-        <li
-          style="
-            background: none;
-            font-weight: bold;
-            border: none;
-            font-size: large;
-            padding-bottom: 20px;
-          "
-          class="list-group-item"
-        >
-          09:00 AM
-        </li>
+      <div id="Submit">
+        <button type="submit">proceed to pay</button>
       </div>
-      <div
-        class="form-check"
-        style="display: flex; flex-direction: row"
-        name="VRL"
-      >
-        <input
-          class="form-check-input"
-          type="radio"
-          name="flexRadioDefault"
-          id="flexRadioDefault2"
-          value="VRL"
-        />
-        <h5>VRL Travels<span>-------------</span></h5>
-        <li
-          style="
-            background: none;
-            font-weight: bold;
-            border: none;
-            font-size: large;
-            padding-bottom: 20px;
-          "
-          class="list-group-item ListBackGround"
-        >
-          11:00 AM
-        </li>
-      </div>
-      <div
-        class="form-check"
-        style="display: flex; flex-direction: row"
-        name="Shrinath"
-      >
-        <input
-          class="form-check-input"
-          type="radio"
-          name="flexRadioDefault"
-          id="flexRadioDefault3"
-          value="Shrinath"
-        />
-        <h5>Shrinath Travels<span>--------</span></h5>
-        <li
-          style="
-            background: none;
-            font-weight: bold;
-            border: none;
-            font-size: large;
-            padding-bottom: 20px;
-          "
-          class="list-group-item ListBackGround"
-        >
-          13:00 PM
-        </li>
-      </div>
-      <div
-        class="form-check"
-        style="display: flex; flex-direction: row"
-        name="SRS"
-      >
-        <input
-          class="form-check-input"
-          type="radio"
-          name="flexRadioDefault"
-          id="flexRadioDefault3"
-          value="SRS"
-        />
-        <h5>SRS Travels<span>-------------</span></h5>
-        <li
-          style="
-            background: none;
-            font-weight: bold;
-            border: none;
-            font-size: large;
-            padding-bottom: 20px;
-          "
-          class="list-group-item ListBackGround"
-        >
-          15:00 PM
-        </li>
-      </div>
-      <div
-        class="form-check"
-        style="display: flex; flex-direction: row"
-        name="HANS"
-      >
-        <input
-          class="form-check-input"
-          type="radio"
-          name="flexRadioDefault"
-          id="flexRadioDefault3"
-          value="HANS"
-        />
-        <h5>HANS TRAVELS<span>--------</span></h5>
-        <li
-          style="
-            background: none;
-            font-weight: bold;
-            border: none;
-            font-size: large;
-            padding-bottom: 20px;
-          "
-          class="list-group-item ListBackGround"
-        >
-          17:00 PM
-        </li>
-      </div>
-      <div
-        class="form-check"
-        style="display: flex; flex-direction: row"
-        name="Gujarat"
-      >
-        <input
-          class="form-check-input"
-          type="radio"
-          name="flexRadioDefault"
-          id="flexRadioDefault3"
-          value="Gujarat"
-        />
-        <h5>Gujarat Travels<span>---------</span></h5>
-        <li
-          style="
-            background: none;
-            font-weight: bold;
-            border: none;
-            font-size: large;
-            padding-bottom: 20px;
-          "
-          class="list-group-item ListBackGround"
-        >
-          19:00 PM
-        </li>
-      </div>
-      <li class="nav-item">
-  <a class="nav-link active" aria-current="page" href="{{url_for('core.review')}}">
-  <button type="button" class="btn btn-success">Proceed to payment</button>
-  </a>
-</li>
     </form>
     <script>
       function IncreaseFunction() {
